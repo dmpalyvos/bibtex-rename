@@ -4,16 +4,6 @@ import argparse
 import sys
 
 
-# Remove month entries form raw BibTex 
-# because bibtexparser complains about month format from Zotero
-def removeMonths(bibtex):
-   lines = []
-   for line in bibtex:
-      if 'month' not in line:
-         lines.append(line)
-   return ''.join(lines)
-
-
 def simplifiedString(input):
    return re.sub(r'\W+', '', input).lower()
 
@@ -39,9 +29,10 @@ if __name__ == '__main__':
       type=argparse.FileType('w'), default='out.tex')
 
    args = parser.parse_args()
+   
 
-   oldBibliography = bibtexparser.loads(removeMonths(args.oldbib))
-   newBibliography = bibtexparser.loads(removeMonths(args.newbib))
+   oldBibliography = bibtexparser.load(args.oldbib, bibtexparser.bparser.BibTexParser(common_strings=True))
+   newBibliography = bibtexparser.load(args.newbib, bibtexparser.bparser.BibTexParser(common_strings=True))
    args.oldbib.close()
    args.newbib.close()
 
