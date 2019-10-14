@@ -20,11 +20,11 @@ if __name__ == '__main__':
 
    parser = argparse.ArgumentParser()
    parser.add_argument('--tex', help='LaTeX input file', 
-      type=argparse.FileType('r'), required=True)
+      type=argparse.FileType('r', encoding='UTF-8'), required=True)
    parser.add_argument('--oldbib', help='Old bibliography file', 
-      type=argparse.FileType('r'), required=True)
+      type=argparse.FileType('r', encoding='UTF-8'), required=True)
    parser.add_argument('--newbib', help='New bibliography file', 
-      type=argparse.FileType('r'), required=True)
+      type=argparse.FileType('r', encoding='UTF-8'), required=True)
    parser.add_argument('--out', help='Output LaTeX file', 
       type=argparse.FileType('w'), default='out.tex')
 
