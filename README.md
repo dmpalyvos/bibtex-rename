@@ -13,11 +13,7 @@ For example, you have a document where the reference keys have the format `autho
 
 ## Usage
 
-The tool, `transform.py` takes as input the original tex file, the original bibliography and the updated bibliography (with the new key format) and outputs a new tex file where the reference keys have been updated.
-
-```bash
-transform.py [-h] --tex TEX --oldbib OLDBIB --newbib NEWBIB [--out OUT]
-```
+The tool, `transform.py` a directory with LaTeX files, the original bibliography and the updated bibliography (with the new key format) and replaces the tex files in the directory with files whose reference keys have been updated to match the new bibliography. Use `--help` for more info on the CLI arguments.
 
 ## Tips & Tricks
 
